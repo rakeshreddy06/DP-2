@@ -33,4 +33,14 @@ def privacy_function(epsilon):
     return age_avg + noise
 
 
+<<<<<<< HEAD
 print(privacy_function(1))
+=======
+DF_0_5=privacy_function(0.5)
+DF_1=privacy_function(1)
+
+print(f' average age before laplace noise: {avg_age()}')
+print(f'The average age after laplace noise is e=0.5: {DF_0_5}')
+print(f'The average age after laplace noise is e=1: {DF_1}')
+
+>>>>>>> bf4d40e (Dp-2)

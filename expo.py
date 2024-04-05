@@ -14,6 +14,15 @@ def exponential_mechanism(df, epsilon, sensitivity, utility_function):
     utility_scores = [score / scaling_factor for score in utility_scores]
     probabilities = np.exp(epsilon * np.array(utility_scores) / (2 * sensitivity))
     probabilities /= np.sum(probabilities)
+
+    print(f"Probability distributions for epsilon {epsilon} \n")
+
+
+    for i in range(len(education_values)):
+        print(f"{education_values[i]:<20} : {probabilities[i]:.2f}")
+    print("\n")
+
+
     return np.random.choice(education_values, p=probabilities)
 
 
@@ -25,8 +34,17 @@ sensitivity = 1
 
 private_frequent_education_0_5 = exponential_mechanism(df, epsilon=0.5, sensitivity=sensitivity,
                                                        utility_function=utility_function)
+
 print(f"Exponential mechanism  most frequent education (ε = 0.5): {private_frequent_education_0_5}")
 
 private_frequent_education_1 = exponential_mechanism(df, epsilon=1, sensitivity=sensitivity,
                                                      utility_function=utility_function)
 print(f"Exponential mechanism frequent education (ε = 1): {private_frequent_education_1}")
+
+print(f"Exponential mechanism  most frequent education e = 0.5: {private_frequent_education_0_5}")
+
+print("******************************************\n")
+private_frequent_education_1 = exponential_mechanism(df, epsilon=1, sensitivity=sensitivity,
+                                                     utility_function=utility_function)
+print(f"Exponential mechanism frequent education e=1: {private_frequent_education_1}")
+
